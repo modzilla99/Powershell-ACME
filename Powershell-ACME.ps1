@@ -2,8 +2,26 @@
 param
 (
   [Parameter(Mandatory=$true)]
-	[Object]$azParams
+  [String]$SubscriptionID
+
+  [Parameter(Mandatory=$true)]
+  [String]$TenantID
+
+  [Parameter(Mandatory=$true)]
+  [String]$AppID
+
+  [Parameter(Mandatory=$true)]
+  [String]$Password
 )  
+
+$azParams = @{ 
+  AZSubscriptionId = $SubscriptionID
+  AZTenantId = $TenantID
+  AZAppUsername = $AppID
+  AZAppPasswordInsecure = $Password
+ 
+} 
+
 
 #Managing prerequisites
 New-Item -Path C:\Certificates -ItemType Directory -Force
